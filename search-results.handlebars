@@ -1,0 +1,20 @@
+<h1>{{title}}</h1>
+
+<a href="/">Back to Home</a>
+
+{{#if profiles.length}}
+  <h2>Search Results for "{{interest}}"</h2>
+  <p>Total Results: {{profiles.length}}</p>
+  <ul>
+    {{#each profiles}}
+      <li>
+        <p>Name: {{name}}</p>
+        <p>Age: {{age}}</p>
+        <p>Bio: {{bio}}</p>
+        <p>Interests: {{interests}}</p>
+      </li>
+    {{/each}}
+  </ul>
+{{else}}
+  <p>No profiles found for "{{interest}}".</p>
+{{/if}}

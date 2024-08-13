@@ -1,0 +1,28 @@
+<h1>{{title}}</h1>
+
+<a href="/profile/new">Create New Profile</a>
+
+<form action="/search" method="get">
+  <input type="text" name="interest" placeholder="Search by interest" required>
+  <button type="submit">Search</button>
+</form>
+
+{{#if profiles.length}}
+  <h2>Profiles</h2>
+  <ul>
+    {{#each profiles}}
+      <li>
+        <h3>{{name}}, {{age}}</h3>
+
+        {{#if image}}
+          <img src="{{image}}" alt="{{name}}'s profile picture" style="max-width: 200px;">
+        {{/if}}
+        <p>Interests: {{interests}}</p>
+        <p>{{bio}}</p>
+       <a href="/profile/edit/{{_id}}">Edit</a>
+      </li>
+    {{/each}}
+  </ul>
+{{else}}
+  <p>No profiles available.</p>
+{{/if}}
